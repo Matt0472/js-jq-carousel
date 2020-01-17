@@ -19,21 +19,31 @@ $(document).ready(
 function slideNext() {
   var activeImage = $('img.active');
   var nextImage = activeImage.next();
-  if (activeImage.hasClass('last') == true) {
+  var activeCircle = $('.nav > i.active');
+  var nextCircle = activeCircle.next();
+  if (activeImage.hasClass('last') == true && activeCircle.hasClass('last') == true) {
     nextImage = $('img.first');
+    nextCircle = $('i.first');
   }
   activeImage.removeClass('active');
   nextImage.addClass('active');
+  activeCircle.removeClass('active');
+  nextCircle.addClass('active');
 }
 
 function slidePrev() {
   var activeImage = $('img.active');
   var prevImage = activeImage.prev();
-  if (activeImage.hasClass('first') == true) {
+  var activeCircle = $('.nav > i.active');
+  var prevCircle = activeCircle.prev();
+  if (activeImage.hasClass('first') == true && activeCircle.hasClass('first') == true) {
     prevImage = $('img.last');
+    prevCircle = $('i.last');
   }
   activeImage.removeClass('active');
   prevImage.addClass('active');
+  activeCircle.removeClass('active');
+  prevCircle.addClass('active');
 }
 
 
