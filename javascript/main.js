@@ -3,24 +3,37 @@
 // I cerchietti devono cambiare colore contemporaneamente.
 $(document).ready(
   function() {
-
+    var arrowRight = $('.next');
+    console.log(arrowRight);
+    arrowRight.click(function() {
+      slideNext();
+    });
+    var arrowPrev = $('.prev');
+    arrowPrev.click(function() {
+      slidePrev();
+    });
   }
 );
 
 
 function slideNext() {
-  var arrowNext = $('.next > i');
   var activeImage = $('img.active');
-  var nextImage = $('img.active').next();
-  if (activeImage.hasClass('active') == true) {
-    activeImage.removeClass('active');
-    nextImage.addClass('active');
-    // activeImage.hasClass('active') = true;
+  var nextImage = activeImage.next();
+  if (activeImage.hasClass('last') == true) {
+    nextImage = $('img.first');
   }
+  activeImage.removeClass('active');
+  nextImage.addClass('active');
 }
-function slideNext() {
-  var arrowPrev = $('.prev i');
+
+function slidePrev() {
   var activeImage = $('img.active');
+  var prevImage = activeImage.prev();
+  if (activeImage.hasClass('first') == true) {
+    prevImage = $('img.last');
+  }
+  activeImage.removeClass('active');
+  prevImage.addClass('active');
 }
 
 
