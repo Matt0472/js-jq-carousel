@@ -12,6 +12,18 @@ $(document).ready(
     arrowPrev.click(function() {
       slidePrev();
     });
+
+    // BONUS
+    // Aggingiamo la possibilità di andare avanti e indietro con la tastiera premendo le frecce destra/sinistra.
+    $(document).keydown(
+      function() {
+        if (event.which == 39) {
+          slideNext();
+        } else if (event.which == 37) {
+          slidePrev();
+        }
+      }
+    )
   }
 );
 
@@ -45,50 +57,3 @@ function slidePrev() {
   activeCircle.removeClass('active');
   prevCircle.addClass('active');
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// BONUS
-// Aggingiamo la possibilità di andare avanti e indietro con la tastiera premendo le frecce destra/sinistra.
